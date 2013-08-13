@@ -1,32 +1,33 @@
 
 //navigation
 
-$('.sub, .sub2, .arrow').hide();
+$('.no-js').addClass('js').removeClass('no-js');
+//$('.sub, .sub2, .arrow').hide();
 
 $(document).ready(function(){
 
-	function loadContent(contentName){}
+	//function loadContent(contentName){}
 
 
-	$('ul.nav li>a').click(function(){ //open & close menus
+	$('.wl-nav li>a').click(function(){ //open & close menus
 
 			$li = $(this).parent();
 			$li.addClass('active-cat').siblings().removeClass('active-cat').children('ul.sub, ul.sub2').hide().end().children('a').children('.arrow').hide();
 
-			$subcat = $li.children('ul.sub, ul.sub2');
+			$subcat = $li.children('ul.wl-sub, ul.wl-sub2');
 			$arrow = $(this).children('.arrow');
 				$subcat.toggle();
-				$arrow.toggle(); 
+				$arrow.toggleClass('openarrow'); 
 
 	});
 
 
 
-	$('.sub>li>a').click(function(){ //toggle the 'active' class
+	$('.wl-sub>li>a').click(function(){ //toggle the 'active' class
 		$li = $(this).parent();
 
 		if (!$li.hasClass('active-sub')){ 
-			$('.sub>li').removeClass('active-sub');
+			$('.wl-sub>li').removeClass('active-sub');
 		}
 
 		$(this).parent().toggleClass('active-sub');
