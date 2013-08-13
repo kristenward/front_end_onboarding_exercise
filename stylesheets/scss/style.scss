@@ -4,7 +4,7 @@ $navwidth: 230px;
 $navtitle: 80px;
 
 /* colors */
-$styled-border: url('images/ui/cat-nav-border-image.png');
+$styled-border: url('../../images/ui/cat-nav-border-image.png');
 $fpp-darkgrey: #3e3e3e;
 
 
@@ -22,11 +22,16 @@ a{
 
     .cat-nav{
         position:relative;
-        border: 1px solid #ccc;
+        border: 1px solid transparent;
         float:left;
         width:230px;
         padding:10px 0 10px 0;
 
+    }
+    .navborder{
+        -webkit-border-image:$styled-border 1 1 round; /* Safari 5 */
+        -o-border-image:$styled-border 1 1 round; /* Opera */
+        border-image:$styled-border 1 1 round;
     }
 }
 

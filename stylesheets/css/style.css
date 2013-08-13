@@ -11,10 +11,16 @@ a {
   margin: 10px; }
   #sidebar .cat-nav {
     position: relative;
-    border: 1px solid #ccc;
+    border: 1px solid transparent;
     float: left;
     width: 230px;
     padding: 10px 0 10px 0; }
+  #sidebar .navborder {
+    -webkit-border-image: url("../../images/ui/cat-nav-border-image.png") 1 1 round;
+    /* Safari 5 */
+    -o-border-image: url("../../images/ui/cat-nav-border-image.png") 1 1 round;
+    /* Opera */
+    border-image: url("../../images/ui/cat-nav-border-image.png") 1 1 round; }
 
 #nav-title {
   font-family: Georgia;
