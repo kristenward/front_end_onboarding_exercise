@@ -1,10 +1,14 @@
 
 //navigation
 
+
 $('.no-js').addClass('js').removeClass('no-js');
 //$('.sub, .sub2, .arrow').hide();
 
 $(document).ready(function(){
+
+
+
 
 	//function loadContent(contentName){}
 
@@ -32,6 +36,63 @@ $(document).ready(function(){
 
 		$(this).parent().toggleClass('active-sub');
 	});
+
+
+	// // // // // swipe functions
+
+	var elem = document.getElementById('PromoSwipe');
+
+	$('.swipe-wrap>div').each(function(){ $('.swipe-position').append('<li></li>');})
+	$('.swipe-position>li:first-child').addClass('on');
+
+
+	$('.wl-swipe').each(function(){
+		var $this = $(this),
+			options = {
+				auto: 3000,
+		  		continuous: true,
+	    		// disableScroll: true,
+	   			stopPropagation: true,
+	   			callback: function(index, element) {
+	   				$index = index;
+	   				console.log($index);
+	   				$('.swipe-position>li:eq('+$index+')')
+	   					.addClass('on').siblings().removeClass('on');
+	   			},
+			},
+			$swipe = $this.find('.swipe').Swipe(options).data(),
+			$dot = $('.swipe-position>li');
+
+		$dot.on('click', function(e){
+			e.preventDefault();
+			var index = $(this).index(); //???
+			$swipe.Swipe.slide(index, 300);
+		});
+
+	});
+
+
+	// window.mySwipe = Swipe(elem, {
+	//   // startSlide: 4,
+	//   // auto: 3000,
+	//  	continuous: true,
+	//   // disableScroll: true,
+	//   	stopPropagation: true,
+	//   	callback: function(index, element) {
+	//   		$index = index;
+	//   		console.log($index);
+	//   		$('.swipe-position>li:eq('+$index+')').addClass('on').siblings().removeClass('on');
+	//   	},
+	//   	$('.swipe-position>li').click(function(speed){
+ //    		var index = $(this).index();
+ //    		slide(index, 300);
+ //   		})
+
+	//   // transitionEnd: function(index, element) {}
+	// });
+
+	
+
 
 });
 

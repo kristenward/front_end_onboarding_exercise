@@ -150,6 +150,9 @@ function Swipe(container, options) {
     offloadFn(options.callback && options.callback(index, slides[index]));
   }
 
+  
+
+
   function move(index, dist, speed) {
 
     translate(index, dist, speed);

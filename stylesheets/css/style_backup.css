@@ -154,14 +154,6 @@ ul.wl-ui-list {
   display: none; }
 
 /* Swipe 2 required styles */
-.wl-swipe {
-  width: 230px; }
-
-.wl-swipe nav {
-  position: absolute;
-  width: 100%;
-  bottom: -20px; }
-
 .swipe {
   overflow: hidden;
   visibility: hidden;
@@ -174,12 +166,10 @@ ul.wl-ui-list {
 .swipe-wrap > div {
   float: left;
   width: 100%;
-  position: relative;
-  height: 260px; }
+  position: relative; }
 
-.wl-swipe swipe div b {
+.promo1 swipe div b {
   display: block;
-  height: 260px;
   font-weight: bold;
   color: #14ADE5;
   font-size: 20px;
