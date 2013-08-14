@@ -15,27 +15,33 @@ $(document).ready(function(){
 
 	$('.wl-nav li>a').click(function(){ //open & close menus
 
-			$li = $(this).parent();
-			$li.addClass('active-cat').siblings().removeClass('active-cat').children('ul.sub, ul.sub2').hide().end().children('a').children('.arrow').hide();
-
-			$subcat = $li.children('ul.wl-sub, ul.wl-sub2');
+			$li = $(this).parent(); 
+			$sublist = $li.children('ul.wl-sub, ul.wl-sub2');
+			$nephews = $li.siblings().find('ul.wl-sub, ul.wl-sub2');
 			$arrow = $(this).children('.arrow');
-				$subcat.toggle();
-				$arrow.toggleClass('openarrow'); 
+
+			//if($li.hasClass('active-cat'))
+			$li.find('li').removeClass('active-cat');
+
+			if ($li.hasClass('subcat')) {  //children of parent categories only
+
+				$parent = $li.parent().parent();
+				if (!$li.hasClass('active-cat')){ 
+					$('.wl-sub>li').removeClass('active-cat');
+				}
+				//$li.toggleClass('active-cat');
+				$parent.toggleClass('active-parent');
+			}
+
+			$li.toggleClass('active-cat').siblings().removeClass('active-cat').removeClass('active-parent');//.end().children('a').children('.arrow').hide();
+			$nephews.hide().parent().removeClass('active-cat');
+			$sublist.toggle();
 
 	});
 
 
 
-	$('.wl-sub>li>a').click(function(){ //toggle the 'active' class
-		$li = $(this).parent();
 
-		if (!$li.hasClass('active-sub')){ 
-			$('.wl-sub>li').removeClass('active-sub');
-		}
-
-		$(this).parent().toggleClass('active-sub');
-	});
 
 
 	// // // // // swipe functions
@@ -55,7 +61,7 @@ $(document).ready(function(){
 	   			stopPropagation: true,
 	   			callback: function(index, element) {
 	   				$index = index;
-	   				console.log($index);
+	   				//console.log($index);
 	   				$('.swipe-position>li:eq('+$index+')')
 	   					.addClass('on').siblings().removeClass('on');
 	   			},

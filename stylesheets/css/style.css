@@ -4,12 +4,6 @@
 a {
   text-decoration: none; }
 
-.sidebar {
-  width: 100%;
-  float: left;
-  padding: 0;
-  margin: 10px; }
-
 .wl-nav {
   padding: 10px 0; }
 
@@ -24,8 +18,7 @@ a {
   margin: 10px 0; }
 
 .promo1 {
-  width: 230px;
-  height: 230px; }
+  width: 230px; }
 
 .nav-title {
   font-family: Georgia;
@@ -33,11 +26,13 @@ a {
   font-size: 14px;
   position: absolute;
   top: -10px;
-  width: 100%;
+  z-index: 100;
+  width: 230px;
   text-align: center; }
   .nav-title span {
     background: white;
-    padding: 0 5px; }
+    padding: 0 5px;
+    z-index: 5px; }
 
 ul.wl-ui-list {
   margin: 0;
@@ -45,7 +40,15 @@ ul.wl-ui-list {
   list-style-type: none;
   font-family: 'Lato', sans-serif;
   font-size: 10px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  /*.openarrow{
+      
+      background-position: 0px 0px;
+  }
+  .openarrow.pinkarrow{ 
+      background-position:-7px 0px;
+  }
+  */ }
   ul.wl-ui-list .arrow {
     display: inline-block;
     position: relative;
@@ -55,10 +58,10 @@ ul.wl-ui-list {
     width: 7px;
     height: 4px;
     background-position: 7px 7px; }
-  ul.wl-ui-list .openarrow {
-    background-position: 0px 0px; }
-  ul.wl-ui-list .openarrow.pinkarrow {
+  ul.wl-ui-list .active-cat > a > .arrow {
     background-position: -7px 0px; }
+  ul.wl-ui-list .active-parent > a > .arrow {
+    background-position: 0px 0px; }
   ul.wl-ui-list a {
     display: block;
     padding: 8px 20px;
@@ -68,9 +71,9 @@ ul.wl-ui-list {
     background: #f7f7f7;
     color: #3e3e3e; }
   ul.wl-ui-list li.active-cat > a {
-    color: #3e3e3e; }
-  ul.wl-ui-list li.active-sub > a {
     color: #eb5190; }
+  ul.wl-ui-list li.active-parent > a {
+    color: #3e3e3e; }
   ul.wl-ui-list ul.wl-sub a {
     padding-left: 30px; }
   ul.wl-ui-list ul.wl-sub .wl-sub2 a {
@@ -155,7 +158,8 @@ ul.wl-ui-list {
 
 /* Swipe 2 required styles */
 .wl-swipe {
-  width: 230px; }
+  width: 230px;
+  padding-top: 6px; }
 
 .wl-swipe nav {
   position: absolute;
@@ -194,23 +198,17 @@ ul.wl-ui-list {
 
 .swipe-position li {
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background: #141414;
-  box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background: #ccc;
+  /*box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;*/
   margin: 0 2px;
   cursor: pointer; }
 
 .swipe-position li.on {
-  box-shadow: inset 0 1px 3px -1px #28b4ea, 0 1px 2px rgba(0, 0, 0, 0.5);
-  background-color: #1293dc;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1293dc), color-stop(100%, #0f6297));
-  background-image: -webkit-linear-gradient(top, #1293dc, #0f6297);
-  background-image: -moz-linear-gradient(top, #1293dc, #0f6297);
-  background-image: -ms-linear-gradient(top, #1293dc, #0f6297);
-  background-image: -o-linear-gradient(top, #1293dc, #0f6297);
-  background-image: linear-gradient(top, #1293dc, #0f6297); }
+  /*box-shadow: inset 0 1px 3px -1px #28b4ea,0 1px 2px rgba(0,0,0,.5);*/
+  background-color: #ff4c96; }
 
 ul.swipe-position {
   margin: 0 auto;
@@ -218,3 +216,9 @@ ul.swipe-position {
   text-align: center; }
 
 /* color swatches */
+/*layout containers */
+.sidebar {
+  width: 230px;
+  float: left;
+  padding: 0;
+  margin: 10px; }
