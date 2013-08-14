@@ -3,14 +3,8 @@
 
 
 $('.no-js').addClass('js').removeClass('no-js');
-//$('.sub, .sub2, .arrow').hide();
 
 $(document).ready(function(){
-
-
-
-
-	//function loadContent(contentName){}
 
 
 	$('.wl-nav li>a').click(function(){ //open & close menus
@@ -23,14 +17,15 @@ $(document).ready(function(){
 			//if($li.hasClass('active-cat'))
 			$li.find('li').removeClass('active-cat');
 
-			if ($li.hasClass('subcat')) {  //children of parent categories only
+			if ($li.parent('.wl-sub')) {//hasClass('subcat')) {  //children of parent categories only
 
-				$parent = $li.parent().parent();
+				$parentli = $li.parent().parent();
+
 				if (!$li.hasClass('active-cat')){ 
 					$('.wl-sub>li').removeClass('active-cat');
-				}
-				//$li.toggleClass('active-cat');
-				$parent.toggleClass('active-parent');
+					$parentli.removeClass('active-parent');
+				} 
+				$parentli.toggleClass('active-parent');
 			}
 
 			$li.toggleClass('active-cat').siblings().removeClass('active-cat').removeClass('active-parent');//.end().children('a').children('.arrow').hide();
@@ -38,10 +33,6 @@ $(document).ready(function(){
 			$sublist.toggle();
 
 	});
-
-
-
-
 
 
 	// // // // // swipe functions
@@ -78,28 +69,33 @@ $(document).ready(function(){
 	});
 
 
-	// window.mySwipe = Swipe(elem, {
-	//   // startSlide: 4,
-	//   // auto: 3000,
-	//  	continuous: true,
-	//   // disableScroll: true,
-	//   	stopPropagation: true,
-	//   	callback: function(index, element) {
-	//   		$index = index;
-	//   		console.log($index);
-	//   		$('.swipe-position>li:eq('+$index+')').addClass('on').siblings().removeClass('on');
-	//   	},
-	//   	$('.swipe-position>li').click(function(speed){
- //    		var index = $(this).index();
- //    		slide(index, 300);
- //   		})
-
-	//   // transitionEnd: function(index, element) {}
-	// });
-
 	
+	// // // // // Thumbnail functions
 
+	$('.wl-product').each(function(){
+		$swatch_list = $(this).children('.wl-product-swatches');
+		$swatches = $swatch_list.children();
+		$num_swatches = $swatches.length;
+		if ($num_swatches>8){
+			for(var i=8; i<$swatches.length; i++) {
+			$($swatches[i]).hide();
+			}
 
-});
+			$swatch_list.append('<div class="addl">+'+($num_swatches-8));
+		}
+	})
+
+	$('.wl-product-swatches>li').click(function(e){
+		e.preventDefault;
+		$prod = $(this).parent().parent();
+		$large = $prod.children('.media').find('img');
+		console.log($large);
+		//$index = $prod.index();
+		$base_href = "http://placehold.it/236x314/"
+		$color = $(this).children('img').attr('alt');
+		$large.attr('src', $base_href + $color);
+	})
+
+}); //d-ready
 
 
