@@ -298,6 +298,18 @@ ul.swipe-position {
     top: -5px;
     font-weight: bold; }
 
+/* Refinements */
+.wl-refinements select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 5px;
+  width: 150px;
+  background: transparent url("../../images/ui/sprite-sheet.png");
+  background-position: 0px -65px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #7e7e7e; }
+
 /* Layout Containers */
 .sidebar {
   width: 230px;

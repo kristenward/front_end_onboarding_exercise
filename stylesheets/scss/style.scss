@@ -374,6 +374,24 @@ ul.swipe-position{
         }
 }
 
+
+/* Refinements */
+.wl-refinements{
+    select{
+        -moz-appearance:none;
+        -webkit-appearance: none;
+        padding:5px;
+        width:150px;
+        background: transparent $sprites;
+        background-position: 0px -65px;
+        font-family:'Georgia', serif;
+        font-style:italic;
+        color:#7e7e7e;
+        option:first-child:after{
+
+        }
+    }
+}
 /* Layout Containers */
 
 .sidebar{
