@@ -74,10 +74,7 @@ $(document).ready(function(){
 
 	});
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 	
 	// // // // // Thumbnail functions
 
