@@ -77,26 +77,6 @@ $(document).ready(function(){
 
 	});
 
-
-	// window.mySwipe = Swipe(elem, {
-	//   // startSlide: 4,
-	//   // auto: 3000,
-	//  	continuous: true,
-	//   // disableScroll: true,
-	//   	stopPropagation: true,
-	//   	callback: function(index, element) {
-	//   		$index = index;
-	//   		console.log($index);
-	//   		$('.swipe-position>li:eq('+$index+')').addClass('on').siblings().removeClass('on');
-	//   	},
-	//   	$('.swipe-position>li').click(function(speed){
- //    		var index = $(this).index();
- //    		slide(index, 300);
- //   		})
-
-	//   // transitionEnd: function(index, element) {}
-	// });
-
 	
 
 

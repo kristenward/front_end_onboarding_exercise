@@ -11,20 +11,18 @@
 <body>
 
 <div class="wrap">
-
-<div id="sidebar">
-<div class="aside cat-nav navborder">
-    <div id="nav-title">Category</div>
-
-    <ul class="nav wl-ui-list ">
-        <li class="cat"><a href="#">Dresses<span class="arrow">v</span></a>
-            <ul class="sub wl-ui-list">
+<div class="sidebar">
+<div class="wl-navborder">
+    <div class="nav-title"><span>Category</span></div>
+    <ul class="wl-nav wl-ui-list">
+        <li class="cat"><a href="#">Dresses<span class="no-js arrow"></span></a>
+            <ul class="wl-ui-list wl-sub no-js">
                 <li><a href="#">DAY</a></li>
                 <li><a href="#">PARTY</a></li>
                 <li><a href="#">NIGHT OUT</a></li>
                 <li><a href="#">KNIT &amp; JERSEY</a></li>
-                <li class="cat"><a href="#">SHOP BY SHAPE<span class="arrow">v</span></a>
-                    <ul class="sub2 wl-ui-list">
+                <li class="cat subcat"><a href="#">SHOP BY SHAPE<span class="no-js arrow pinkarrow"></span></a>
+                    <ul class="wl-ui-list wl-sub2 no-js">
                         <li><a href="#">MAXI</a></li>
                         <li><a href="#">FIT N' FLARE</a></li>
                         <li><a href="#">BODY CON</a></li>
@@ -45,7 +43,33 @@
     </ul>
 
 </div>
+
+<div class="wl-navborder wl-swipe">
+    <div class="nav-title"><span>Free People Labels<b></b></span></div>
+    <div id="PromoSwipe" class="swipe">
+        <div class="swipe-wrap">
+            <div><b><img src="http://placehold.it/230x260"/></b></div>
+            <div><b><img src="http://placehold.it/230x260/ff0000"/></b></div>
+            <div><b><img src="http://placehold.it/230x260/cccccc"/></b></div>
+            <div><b><img src="http://placehold.it/230x260/ff0099"/></b></div>
+            <div><b><img src="http://placehold.it/230x260/0000ff"/></b></div>
+            <div><b><img src="http://placehold.it/230x260/999999"/></b></div>
+        </div>
+    </div>
+    <nav>
+
+    <ul class="swipe-position">
+      
+    </ul>
+
+  </nav>
 </div>
+</div>
+
+
+
+
+
 <div style="display:none;" id="product-content-01" class = "product-container">
 <ul class="wl-product-group--grid wl-product-group wl-cf">
     <li class="wl-product wl-cf">
@@ -256,5 +280,6 @@
 
 </body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swipe.js"></script>
     <script type="text/javascript" src="js/practice.js"></script>
 </html>
