@@ -100,6 +100,14 @@ $(document).ready(function(){
 		$large.attr('src', $base_href + $color);
 	})
 
+
+	// // // // check # of initial products and update span
+
+	updateNumStyles();
+
+
 }); //d-ready
 
-
+function updateNumStyles(){
+	$('span.num-styles').html($('.wl-product-group>li').length);
+}
