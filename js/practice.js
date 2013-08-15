@@ -1,14 +1,15 @@
-$('.no-js').addClass('js').removeClass('no-js');
+$('.swipe, .wl-sub, .wl-sub2, .arrow, .refine-submit, .refine-results').addClass('is_enhanced');
 
 $(document).ready(function(){
 
-	
-	$('.wl-nav li>a').click(function(){ //open & close menus
-
+	$('.wl-nav').each(function(){
+		$menuLink = $(this).find('li').children('a');
+		
+		$menuLink.click(function(e){ //open & close menus
+			e.preventDefault();
 			$li = $(this).parent(); 
 			$sublist = $li.children('ul.wl-sub, ul.wl-sub2');
 			$nephews = $li.siblings().find('ul.wl-sub, ul.wl-sub2');
-			//$arrow = $(this).children('.arrow');
 			
 			$li.find('li').removeClass('active-cat').removeClass('active-parent').find('ul').hide();
 
@@ -16,7 +17,6 @@ $(document).ready(function(){
 
 					if($li.hasClass('active-parent')){
 						$li.removeClass('active-parent').removeClass('active-cat').children('ul').hide();
-						//$sublist.find('ul.wl-sub, ul-wl-sub2').hide();
 					}
 
 					$parentli = $li.parent().parent();
@@ -25,56 +25,48 @@ $(document).ready(function(){
 						$('.wl-sub>li').removeClass('active-cat');
 						$parentli.removeClass('active-parent');
 						$sublist.toggle();
-					} else{
+					} 
+					else{
 						$li.find('ul').hide();
 					}
 					$parentli.toggleClass('active-parent');
-
-				} else{
-
-					//$sublist.toggle();
 				}
-
-
 			$li.toggleClass('active-cat').siblings().removeClass('active-cat').removeClass('active-parent');//.end().children('a').children('.arrow').hide();
 			$nephews.hide().parent().removeClass('active-cat');
-			
+		});
 
-	});
+	}); //each
 
-// // // // // Swipe functions
-
-	var elem = document.getElementById('PromoSwipe');
-	$('.swipe-wrap>div').each(function(){ $('.swipe-position').append('<li></li>');})
-	$('.swipe-position>li:first-child').addClass('on');
-
+	// // // // // Swipe functions
 
 	$('.wl-swipe').each(function(){
 		var $this = $(this),
-			options = {
-				auto: 3000,
-		  		continuous: true,
-	    		// disableScroll: true,
-	   			stopPropagation: true,
-	   			callback: function(index, element) {
-	   				$index = index;
-	   				//console.log($index);
-	   				$('.swipe-position>li:eq('+$index+')')
-	   					.addClass('on').siblings().removeClass('on');
-	   			},
-			},
-			$swipe = $this.find('.swipe').Swipe(options).data(),
-			$dot = $('.swipe-position>li');
+		options = {
+			auto: 3000,
+	  		continuous: true,
+			disableScroll: true,
+				stopPropagation: true,
+				callback: function(index, element) {
+					$index = index;
+					$('.swipe-position>li:eq('+$index+')')
+						.addClass('on').siblings().removeClass('on');
+				},
+		},
+		$swipe = $this.find('.swipe').Swipe(options).data(),
+		numSlides = $swipe.Swipe.getNumSlides();
+		
+		for(var i=0; i<numSlides; i++) {
+			$('.swipe-position').append('<li></li>');
+		}
+		$dot = $('.swipe-position>li');
+		$dot.eq(0).addClass('on');
 
 		$dot.on('click', function(e){
 			e.preventDefault();
 			var index = $(this).index(); //???
 			$swipe.Swipe.slide(index, 300);
 		});
-
 	});
-
-
 	
 	// // // // // Thumbnail functions
 
@@ -89,25 +81,33 @@ $(document).ready(function(){
 
 				$swatch_list.append('<div class="addl">+'+($num_swatches-8));
 			}
-	})
+	
 
-	$('.wl-product-swatches>li').click(function(e){ //swap large thumbs
-		e.preventDefault;
-		$prod = $(this).parent().parent();
-		$large = $prod.children('.media').find('img');
-		$base_href = "http://placehold.it/236x314/"
-		$color = $(this).children('img').attr('alt');
-		$large.attr('src', $base_href + $color);
+		$('.wl-product-swatches>li').click(function(e){ //swap large thumbs
+			e.preventDefault();
+			$prod = $(this).parent().parent();
+			$large = $prod.children('.media').find('img');
+			$base_href = "http://placehold.it/236x314/"
+			$color = $(this).children('img').attr('alt');
+			$large.attr('src', $base_href + $color);
+		})
 	})
-
 
 	// // // // check # of initial products and update span
+	
 
-	updateNumStyles();
+	$('.wl-refinements').each(function(){
+			function updateNumStyles(){
+			
+				$('span.num-styles').html($('.wl-product-grid>li').length);
+			};
+			//$(this).find('.span.num-styles').html($('.wl-product-group>li').length);
+			updateNumStyles();
+	});
+	
 
 
 }); //d-ready
 
-function updateNumStyles(){
-	$('span.num-styles').html($('.wl-product-group>li').length);
-}
+
+
