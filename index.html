@@ -10,19 +10,19 @@
 
 <body>
 
-<div class="wrap">
+<div class="wl-layout">
 <div class="sidebar">
-    <div class="wl-navborder">
+    <div class="wl-ht-box">
         <div class="nav-title"><span>Category</span></div>
         <ul class="wl-nav wl-ui-list">
-            <li class="cat"><a href="#">Dresses<span class="no-js arrow"></span></a>
-                <ul class="wl-ui-list wl-sub no-js">
+            <li class="cat"><a href="#">Dresses<span class="arrow"></span></a>
+                <ul class="wl-ui-list wl-sub">
                     <li><a href="#">DAY</a></li>
                     <li><a href="#">PARTY</a></li>
                     <li><a href="#">NIGHT OUT</a></li>
                     <li><a href="#">KNIT &amp; JERSEY</a></li>
-                    <li class="cat subcat"><a href="#">SHOP BY SHAPE<span class="no-js arrow pinkarrow"></span></a>
-                        <ul class="wl-ui-list wl-sub2 no-js">
+                    <li class="cat subcat"><a href="#">SHOP BY SHAPE<span class="arrow"></span></a>
+                        <ul class="wl-ui-list wl-sub2">
                             <li><a href="#">MAXI</a></li>
                             <li><a href="#">FIT N' FLARE</a></li>
                             <li><a href="#">BODY CON</a></li>
@@ -44,7 +44,7 @@
 
     </div>
 
-    <div class="wl-navborder wl-swipe">
+    <div class="wl-ht-box wl-swipe">
         <div class="nav-title"><span>Free People Labels<b></b></span></div>
         <div id="PromoSwipe" class="swipe">
             <div class="swipe-wrap">
@@ -66,12 +66,12 @@
     </div>
 
     <div class="wl-asidenews">
-
             <h2 class="aside-h">sign up for our emails!</h2>
             <p>new friends get free shipping</p>
-            <form><input value="Your Email Address" name="Email" class="wl-navborder" type="text"  onblur="if (this.value == '') {this.value = 'Your Email Address';}"
- onfocus="if (this.value == 'Your Email Address') {this.value = '';}"></input><br/>
-                <input value="SIGN UP" type="submit"></input></form>
+            <form>
+                <input value="Your Email Address" name="Email" class="wl-ht-box" type="text"  onblur="if (this.value == '') {this.value = 'Your Email Address';}"
+ onfocus="if (this.value == 'Your Email Address') {this.value = '';}"></input>
+                <input value="SIGN UP" type="submit" class="wl-submit-button1"></input></form>
     </div>
 
 </div>
@@ -79,31 +79,30 @@
 
 
 <div class ="product-container">
-    
     <div class="wl-refinements">
         <form id="wl-browse-refinements">
-            <select class="wl-navborder" value="Sort By" name="Sort By" onchange=function(){}>
+            <select class="refine-select" value="Sort By" name="Sort By" onchange=function(){}>
                 <option>Sort By</option>
                 <option value="opt1">Option 1</option>
                 <option value="opt2">Option 2</option>
             </select>
-            <select class="wl-navborder" value="Shop By Size" name="Shop by Size" onchange=function(){}>
+            <select class="refine-select" value="Shop By Size" name="Shop by Size" onchange=function(){}>
                 <option>Shop by Size</option>
                 <option value="opt1">Option 1</option>
                 <option value="opt2">Option 2</option>
             </select>
-            <select class="wl-navborder" value="Shop By Color" name="Shop by Color" onchange=function(){}>
+            <select class="refine-select" value="Shop By Color" name="Shop by Color" onchange=function(){}>
                 <option>Shop by Color</option>
                 <option value="opt1">Option 1</option>
                 <option value="opt2">Option 2</option>
             </select>
-            <input type="submit" class="no-js" value="Refine Search"></input>
+            <input type="submit" class="wl-submit-button1 refine-submit" value="Refine Search"></input>
         </form>
         <div class="refine-results"><span class="num-styles">0</span>&nbsp;Styles</div>
     </div>
 
-    <ul class="wl-product-group--grid wl-product-group wl-cf">
-        <li class="wl-product wl-cf">
+    <ul class="wl-product-grid">
+        <li class="wl-product">
             <p class="media">
                 <a href="#">
                     <img alt="Product Name" height="314" src="http://placehold.it/236x314/f7f7f7" width="236">
