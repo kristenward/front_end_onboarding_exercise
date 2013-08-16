@@ -14,23 +14,34 @@ $(document).ready(function(){
             $sublist = $li.children('ul.wl-sub, ul.wl-sub2');
             $nephews = $li.siblings().find('ul.wl-sub, ul.wl-sub2');
             
-                $li.find('li').removeClass('active-cat').removeClass('active-parent').find('ul').hide(); //all
+            $li.find('li').removeClass('active-cat').removeClass('active-parent').find('ul').hide();
+
                 if ($li.parent('.wl-sub')) { //children of parent categories only
-                    $parentli = $li.parent().parent();
-                    $parentli.addClass('active-parent');
-                }
-                if($li.hasClass('active-cat')){
-                    $li.removeClass('active-cat');
-                     if($li.hasClass('active-parent')){
+
+                    if($li.hasClass('active-parent')){
                         $li.removeClass('active-parent').removeClass('active-cat').children('ul').hide();
                         $sublist.hide();
                     }
+
+                    $parentli = $li.parent().parent();
+
+                    if (!$li.hasClass('active-cat')){ 
+                        $('.wl-sub>li').removeClass('active-cat');
+                        $parentli.removeClass('active-parent');
+                        $sublist.toggle();
+                    } 
+                    else{
+                        $li.find('ul').hide();
+                    }
+                    $parentli.toggleClass('active-parent');
+                }
+                if($li.hasClass('active-cat')){
+                    $li.removeClass('active-cat');
                     $sublist.hide();
                 } else{
-                    $li.addClass('active-cat');
-                    $sublist.toggle();
-                }
+                    $li.addClass('active-cat')
 
+                }
             $li.siblings().removeClass('active-cat').removeClass('active-parent');
             $nephews.hide();
         });
