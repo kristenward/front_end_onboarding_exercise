@@ -93,7 +93,7 @@ a {
     text-transform: uppercase;
     font-weight: 200;
     letter-spacing: 1px; }
-  .wl-asidenews p {
+  .wl-asidenews .label {
     margin: 0;
     font-family: 'Lato', sans-serif;
     font-weight: normal;
@@ -104,10 +104,8 @@ a {
     font-weight: 300;
     letter-spacing: 1px; }
   .wl-asidenews input {
-    display: inline-block;
-    margin: 10px 0 0 0;
-    clear: both; }
-  .wl-asidenews input[type=text] {
+    margin: 10px 0 0 0; }
+  .wl-asidenews .wl-email-field {
     padding: 7px 10px;
     width: 170px;
     font-family: 'Georgia', serif;
@@ -289,16 +287,16 @@ a {
   position: relative;
   width: 100%;
   height: 40px;
-  background: url("../../images/ui/sprite-sheet.png");
+  /*background: $sprites;
   background-position: 0 -89px;
-  background-repeat: repeat-x; }
-  .wl-refinements form {
+  background-repeat: repeat-x;*/ }
+  .wl-refinements .wl-refinements-form {
     position: absolute;
     top: 0;
     left: 0;
     padding: 0 5px;
     background: white; }
-    .wl-refinements form .refine-select {
+    .wl-refinements .wl-refinements-form .refine-select {
       position: relative;
       -moz-appearance: none;
       -webkit-appearance: none;
@@ -316,8 +314,6 @@ a {
       font-family: 'Georgia', serif;
       font-style: italic;
       color: #7e7e7e; }
-    .wl-refinements form .refine-submit.is_enhanced {
-      display: none; }
   .wl-refinements .refine-results {
     display: none;
     position: absolute;
@@ -331,8 +327,24 @@ a {
     color: #7e7e7e;
     font-size: 12px;
     background: white; }
-    .wl-refinements .refine-results.is_enhanced {
-      display: block; }
+  .wl-refinements.is_enhanced:after {
+    content: '';
+    display: block;
+    height: 50%;
+    width: 100%;
+    border: 1px solid transparent;
+    -webkit-border-image: url("../../images/ui/cat-nav-border-image.png") 1 1 round;
+    /* Safari 5 */
+    -o-border-image: url("../../images/ui/cat-nav-border-image.png") 1 1 round;
+    /* Opera */
+    border-image: url("../../images/ui/cat-nav-border-image.png") 1 1 round;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0; }
+  .wl-refinements.is_enhanced .refine-results {
+    display: block; }
+  .wl-refinements.is_enhanced .refine-submit {
+    display: none; }
 
 .wl-layout .sidebar {
   padding: 0;
