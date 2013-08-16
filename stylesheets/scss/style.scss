@@ -175,7 +175,7 @@ a {
          font-weight: 200;
          letter-spacing: 1px;
     }
-    p {
+    .label {
         margin: 0; 
         @include sansreg;
         text-transform: lowercase;
@@ -186,11 +186,9 @@ a {
         letter-spacing: 1px;
     }
     input {
-        display: inline-block;
         margin: 10px 0 0 0;
-        clear: both;
     }
-    input[type=text] {
+    .wl-email-field {
         padding: 7px 10px;
         width: 170px;
         @include scriptfont;
@@ -426,7 +424,7 @@ a {
     /*background: $sprites;
     background-position: 0 -89px;
     background-repeat: repeat-x;*/
-    form {
+    .wl-refinements-form {
         position: absolute;
         top: 0;
         left: 0;

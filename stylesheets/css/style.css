@@ -93,7 +93,7 @@ a {
     text-transform: uppercase;
     font-weight: 200;
     letter-spacing: 1px; }
-  .wl-asidenews p {
+  .wl-asidenews .label {
     margin: 0;
     font-family: 'Lato', sans-serif;
     font-weight: normal;
@@ -104,10 +104,8 @@ a {
     font-weight: 300;
     letter-spacing: 1px; }
   .wl-asidenews input {
-    display: inline-block;
-    margin: 10px 0 0 0;
-    clear: both; }
-  .wl-asidenews input[type=text] {
+    margin: 10px 0 0 0; }
+  .wl-asidenews .wl-email-field {
     padding: 7px 10px;
     width: 170px;
     font-family: 'Georgia', serif;
@@ -292,13 +290,13 @@ a {
   /*background: $sprites;
   background-position: 0 -89px;
   background-repeat: repeat-x;*/ }
-  .wl-refinements form {
+  .wl-refinements .wl-refinements-form {
     position: absolute;
     top: 0;
     left: 0;
     padding: 0 5px;
     background: white; }
-    .wl-refinements form .refine-select {
+    .wl-refinements .wl-refinements-form .refine-select {
       position: relative;
       -moz-appearance: none;
       -webkit-appearance: none;
