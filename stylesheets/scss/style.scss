@@ -70,7 +70,6 @@ a {
 // nav/asides
 // ==========================================================================
 
-
 .wl-ht-box {
     position: relative;
     margin: 10px 0;
@@ -103,19 +102,20 @@ a {
         position: relative;
         top: -2px;
         left: 5px;
-        width: 7px; height: 4px;
+        width: 7px; 
+        height: 4px;
         background-image: $sprites;
         background-position: 7px 7px;
         &.is_enhanced {
-            display:none;
+            display: none;
         }
     }
     .active-cat>a>.arrow {
-        display:inline-block;
+        display: inline-block;
         background-position: -7px 0px;
     }
     .active-parent>a>.arrow {
-        display:inline-block;
+        display: inline-block;
         background-position: 0px 0px;
     }
     a {
@@ -136,17 +136,17 @@ a {
     }
     .wl-sub {
         &.is_enhanced {
-            display:none;
+            display: none;
         }
         a {
-            padding-left:30px;
+            padding-left: 30px;
         }
         .wl-sub2 {
             &.is_enhanced {
-                display:none;
+                display: none;
             }
             a {
-                padding-left:40px;
+                padding-left: 40px;
             }
         }
     }
@@ -170,10 +170,10 @@ a {
          margin: 0;
          color: $fpp-magenta;
          @include scriptfont;
-         font-size:12px;
-         text-transform:uppercase;
-         font-weight:200;
-         letter-spacing:1px;
+         font-size: 12px;
+         text-transform: uppercase;
+         font-weight: 200;
+         letter-spacing: 1px;
     }
     p {
         margin: 0; 
@@ -228,6 +228,7 @@ a {
 // ==========================================================================
 // wl-swipe
 // ==========================================================================
+
 .wl-swipe {
     padding-top: 7px;
     margin-bottom: 20px;
@@ -239,10 +240,10 @@ a {
     }
     .swipe {
         position: relative;
-        width:230px;
-        height:260px;
-        overflow-x:scroll;
-        &.is_enhanced{
+        width: 230px;
+        height: 260px;
+        overflow-x: scroll;
+        &.is_enhanced {
             visibility: hidden;
             overflow: hidden;
         }
@@ -280,6 +281,7 @@ a {
 // ==========================================================================
 // wl-product-group--grid
 // ==========================================================================
+
 .wl-product-grid {
     margin: 0;
     padding: 0;
@@ -390,6 +392,7 @@ a {
 // ==========================================================================
 // wl-product-swatches
 // ==========================================================================
+
 .wl-product-swatches {
     display: inline;    
     width: 20px;
@@ -420,9 +423,9 @@ a {
     position: relative;
     width: 100%;
     height: 40px;
-    background: $sprites;
+    /*background: $sprites;
     background-position: 0 -89px;
-    background-repeat: repeat-x;
+    background-repeat: repeat-x;*/
     form {
         position: absolute;
         top: 0;
@@ -442,11 +445,7 @@ a {
             @include scriptfont;
             color: $fpp-medgrey;
         }
-        .refine-submit {
-            &.is_enhanced {
-                display:none;
-            }
-        }
+
     }
     .refine-results {
         display: none;
@@ -460,8 +459,23 @@ a {
         color: $fpp-medgrey;
         font-size: 12px;
         background: $fpp-background;
-        &.is_enhanced {
+    }
+    &.is_enhanced {
+        &:after {
+            content: '';
             display: block;
+            height: 50%;
+            width: 100%;
+            @include border_style_1(1);
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        .refine-results {
+            display: block;
+        }
+        .refine-submit {
+            display: none;
         }
     }
 }
@@ -469,6 +483,7 @@ a {
 // ==========================================================================
 // wl-layout
 // ==========================================================================
+
 .wl-layout {
     .sidebar {
         padding: 0;

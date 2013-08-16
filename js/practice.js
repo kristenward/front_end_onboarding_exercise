@@ -1,6 +1,9 @@
-$('.swipe, .wl-sub, .wl-sub2, .arrow, .refine-submit, .refine-results').addClass('is_enhanced');
+$('.swipe, .wl-sub, .wl-sub2, .arrow, .wl-refinements').addClass('is_enhanced');
 
 $(document).ready(function(){
+
+
+	// // // // // Nav functions
 
 	$('.wl-nav').each(function(){
 		$menuLink = $(this).find('li').children('a');
@@ -35,7 +38,29 @@ $(document).ready(function(){
 			$nephews.hide().parent().removeClass('active-cat');
 		});
 
-	}); //each
+	});
+
+
+
+	// // // // // Form functions
+
+	$('.wl-email-field').each(function(){
+		$(this).blur(function(){
+			if (this.value == '') {this.value = 'Your Email Address';}
+ 
+		}).focus(function(){
+			if (this.value == 'Your Email Address') {this.value = '';}
+		});
+
+	});
+
+	$('.wl-refinements.refine-select').each(function(){
+		$(this).change(function(){
+			//get new set of products
+			updateNumStyles();
+		})
+	})
+
 
 	// // // // // Swipe functions
 
@@ -88,20 +113,16 @@ $(document).ready(function(){
 			$prod = $(this).parent().parent();
 			$large = $prod.children('.media').find('img');
 			$base_href = "http://placehold.it/236x314/"
-			$color = $(this).children('img').attr('alt');
+			$color = $(this).find('img').attr('alt');
 			$large.attr('src', $base_href + $color);
 		})
 	})
 
-	// // // // check # of initial products and update span
+	// // // // // Initial Values
 	
 
 	$('.wl-refinements').each(function(){
-			function updateNumStyles(){
-			
-				$('span.num-styles').html($('.wl-product-grid>li').length);
-			};
-			//$(this).find('.span.num-styles').html($('.wl-product-group>li').length);
+	
 			updateNumStyles();
 	});
 	
@@ -109,5 +130,8 @@ $(document).ready(function(){
 
 }); //d-ready
 
-
+function updateNumStyles(){
+	$('span.num-styles').html($('.wl-product-grid>li').length);
+};
+	
 
